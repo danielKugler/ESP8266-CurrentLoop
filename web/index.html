@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<title>Sensor</title>
+		<meta charset="UTF-8" />
+		<link rel="manifest" href="manifest.json" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" />
+		<link rel="shortcut icon" href="icon.webp" />
+		<link rel="apple-touch-icon" href="icon.webp" />
+		<style>
+			@import url("./src/styles.css");
+		</style>
+	</head>
+	<body>
+		<div id="menu" class="d-flex jc-between ai-center">
+			<div class="title d-flex ai-center" role="button" id="MenuButtonSensor">
+				<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="me-2" viewBox="0 0 16 16">
+					<path fill-rule="evenodd" d="M7.21.8C7.69.295 8 0 8 0q.164.544.371 1.038c.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 0 1-12 0C2 6.668 5.58 2.517 7.21.8m.413 1.021A31 31 0 0 0 5.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10c0 0 2.5 1.5 5 .5s5-.5 5-.5c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z"/>
+					<path fill-rule="evenodd" d="M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87z"/>
+				</svg>
+				<span>Sensor</span>
+			</div>
+			<div class="d-flex ai-center">
+				<!-- <button id="MenuButtonSensor">Füllstand</button> -->
+				<button id="MenuButtonWifi" class="settings">
+					<div class="d-flex jc-center ai-center">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="16"
+							height="16"
+							fill="currentColor"
+							class="me-2"
+							viewBox="0 0 16 16"
+						>
+							<path
+								d="M5.525 3.025a3.5 3.5 0 0 1 4.95 0 .5.5 0 1 0 .707-.707 4.5 4.5 0 0 0-6.364 0 .5.5 0 0 0 .707.707"
+							/>
+							<path
+								d="M6.94 4.44a1.5 1.5 0 0 1 2.12 0 .5.5 0 0 0 .708-.708 2.5 2.5 0 0 0-3.536 0 .5.5 0 0 0 .707.707Z"
+							/>
+							<path
+								d="M2.974 2.342a.5.5 0 1 0-.948.316L3.806 8H1.5A1.5 1.5 0 0 0 0 9.5v2A1.5 1.5 0 0 0 1.5 13H2a.5.5 0 0 0 .5.5h2A.5.5 0 0 0 5 13h6a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5h.5a1.5 1.5 0 0 0 1.5-1.5v-2A1.5 1.5 0 0 0 14.5 8h-2.306l1.78-5.342a.5.5 0 1 0-.948-.316L11.14 8H4.86zM2.5 11a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m4.5-.5a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0m2.5.5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m1.5-.5a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0m2 0a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0"
+							/>
+							<path d="M8.5 5.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0" />
+						</svg>
+						WiFi
+					</div>
+				</button>
+				<button class="help" onclick="showModal('ModalHelp')">
+					<div class="d-flex jc-center ai-center">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="16"
+							height="16"
+							fill="currentColor"
+							class="bi bi-question-circle"
+							viewBox="0 0 16 16"
+						>
+							<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+							<path
+								d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94"
+							/>
+						</svg>
+					</div>
+				</button>
+			</div>
+		</div>
+
+		<div id="Loader">
+			<div class="loader-content d-flex jc-center ai-center"><div class="spinner"></div></div>
+			<div class="loader-bg"></div>
+		</div>
+
+		<div class="content">
+			<section id="SectionSensorData" class="section sensor-data pt-0 show">
+				<!-- <div class="small m-4">Füllstand</div> -->
+				<div id="SensorDigits" class="scala d-flex flex-column-reverse ai-center low">
+					<div class="digit m-1"></div>
+					<div class="digit m-1"></div>
+					<div class="digit m-1"></div>
+					<div class="digit m-1"></div>
+					<div class="digit m-1"></div>
+					<div class="digit m-1"></div>
+					<div class="digit m-1"></div>
+					<div class="digit m-1"></div>
+				</div>
+
+				<div class="d-flex flex-column p-4 mt-auto">
+					<button class="primary d-flex ai-center jc-center" onclick="showModal('ModalSettings')">
+						<span class="me-2">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+								<path
+									fill-rule="evenodd"
+									d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1z"
+								/>
+							</svg>
+						</span>
+						Einstellungen
+					</button>
+				</div>
+			</section>
+
+			<section id="SectionWifiSettings" class="section wifi-settings">
+				<div class="modal" id="ModalWifi">
+					<div class="modal--backdrop" ModalWifi></div>
+					<div class="modal--container">
+						<div class="modal--header">
+							Mit <span class="strong">"<span id="ModalWifiName"></span>"</span> verbinden
+							<div class="close d-flex jc-center ai-center" id="ModalWifiButtonCancelX">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="16"
+									height="16"
+									fill="currentColor"
+									class="bi bi-x-lg"
+									viewBox="0 0 16 16"
+								>
+									<path
+										d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"
+									/>
+								</svg>
+							</div>
+						</div>
+						
+						<div id="ModalWifiError" class="wifi-error mt-4 text-error">
+							Das hat nicht funktioniert.<br />Bitte kontrolliere das eingegebene Passwort.
+						</div>
+						<div class="mt-4">
+							<input
+								class="form-input"
+								type="password"
+								autocomplete="false"
+								placeholder="Passwort"
+								id="ModalWifiPassword"
+							/>
+							<label for="ModalWifiInputShowPassword" class="d-flex ai-center pt-2">
+								<input id="ModalWifiInputShowPassword" type="checkbox" />
+								<div class="m-2 small">Passwort anzeigen</div>
+							</label>
+							<div class="buttons mt-4 d-flex flex-column">
+								<button id="ModalWifiButtonConnect" disabled="disabled" class="mt-4 primary w-100">Verbinden</button>
+								<button id="ModalWifiButtonCancel" class="mt-2 secondary w-100">Abbrechen</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- <div class="wifi d-flex jc-between ai-center">
+					<span>WLAN</span>
+					<div class="switch">
+						<label class="switch" for="WifiSwitch">
+							<input id="WifiSwitch" type="checkbox" checked />
+							<span class="slider round"></span>
+						</label>
+					</div>
+				</div> -->
+
+				<div id="WifiConnected" class="d-none mt-4">
+					<strong class="small m-4">Verbundenes Netzwerk</strong>
+					<div class="d-flex jc-between_ ai-center p-4">
+						<div class="d-flex flex-column justify-content-end w-100">
+							<div class="d-flex mb-1">
+								<div class="wifi-name"></div>
+								<span class="px-2">|</span>
+								<div class="wifi-ip"></div>
+							</div>
+							<div class="small">Kanal: <span class="wifi-channel"></span></div>
+							<div class="small"><span class="wifi-signal"></span>%</div>
+						</div>
+						<button class="secondary" id="WifiButtonDisconnect">Trennen</button>
+					</div>
+				</div>
+
+				<div id="WifiNetworksResult" class="mt-4">
+					<strong class="small m-4">Gefundene Netzwerke</strong>
+					<div class="wifi-list" id="WifiList"></div>
+				</div>
+
+				<div class="d-flex p-4 mt-4">
+					<button id="WifiButtonScan" class="primary w-100">Netzwerke suchen</button>
+				</div>
+			</section>
+		</div>
+
+		<div class="modal" id="ModalSettings">
+			<div class="modal--backdrop" onclick="hideModal('ModalSettings')"></div>
+			<div class="modal--container">
+				<div class="modal--header">
+					Einstellungen
+					<div
+						class="close d-flex jc-center ai-center"
+						onclick="hideModal('ModalSettings')"
+						id="ModalHelpButtonCancelX"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="16"
+							height="16"
+							fill="currentColor"
+							class="bi bi-x-lg"
+							viewBox="0 0 16 16"
+						>
+							<path
+								d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"
+							/>
+						</svg>
+					</div>
+				</div>
+				<div class="modal--content">
+					<div class="d-flex flex-column">
+						<div class="small ps-2 my-2">Messintervall</div>
+						<select class="form-input w-100" id="IntervalSelect">
+							<option value="1">4 Stunden</option>
+							<option value="2">1 Stunde</option>
+							<option value="3">30 Minuten</option>
+							<option value="4">5 Minuten</option>
+							<option value="5">30 Sekunden</option>
+							<option value="6">Permanent</option>
+						</select>
+					</div>
+
+					<div class="d-flex flex-column pt-4">
+						<div class="small ps-2 my-2">Grenzwerte</div>
+						<div class="d-flex jc-center">
+							<div class="minmax w-100 me-2">min: <span class="strong px-1" id="SensorSignalAdcMin"></span></div>
+							<div class="minmax w-100 ms-2">
+								max:
+								<span class="strong px-1" id="SensorSignalAdcMax"></span>
+							</div>
+						</div>
+					</div>
+
+					<div class="d-flex flex-column pt-4">
+						<div class="small ps-2 my-2">Messwert</div>
+						<input
+							type="number"
+							class="form-input text-center"
+							id="InputSensorSignalValue"
+							onfocus="this.classList.add('focused')"
+							onblur="this.classList.remove('focused')"
+						/>
+					</div>
+
+					<div class="d-flex flex-column mt-4">
+						<button id="SensorSignalAdcMinSet" class="primary mb-2">Als Minimalwert übernehmen</button>
+						<button id="SensorSignalAdcMaxSet" class="primary">Als Maximalwert übernehmen</button>
+					</div>
+
+					<hr class="my-4" />
+
+					<div class="d-flex jc-between ai-center pb-3">
+						<label class="switch-label w-100 py-2" for="LedDirectionSwitch">LED-Anzeige umkehren</label>
+						<div class="switch">
+							<label class="switch" for="LedDirectionSwitch">
+								<input id="LedDirectionSwitch" name="LedDirectionSwitch" type="checkbox" />
+								<span class="slider round"></span>
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal" id="ModalHelp">
+			<div class="modal--backdrop" onclick="hideModal('ModalHelp')"></div>
+			<div class="modal--container">
+				<div class="modal--header">
+					LED-Menüsteuerung
+					<div class="close d-flex jc-center ai-center" onclick="hideModal('ModalHelp')" id="ModalHelpButtonCancelX">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="16"
+							height="16"
+							fill="currentColor"
+							class="bi bi-x-lg"
+							viewBox="0 0 16 16"
+						>
+							<path
+								d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"
+							/>
+						</svg>
+					</div>
+				</div>
+				<div class="modal--content">
+					<div class="help d-flex flex-column">
+						<ul>
+							<li><strong>Rot</strong> – Menü aktivieren / Bestätigen</li>
+							<li><strong>Schwarz</strong> – Auswahl / Werte ändern</li>
+						</ul>
+
+						<hr />
+
+						<h3>Bedienung</h3>
+
+						<ol>
+							<li>
+								<strong>Menü öffnen</strong>
+								<ul>
+									<li>Roter Taster einmal drücken</li>
+									<li>1. gelbe LED leuchtet → Menü aktiviert, Auswahl auf Punkt 1 (blaue LED)</li>
+								</ul>
+							</li>
+							<li>
+								<strong>Punkte auswählen und bestätigen</strong>
+								<ul>
+									<li>Schwarzer Taster: Durch Menüpunkte navigieren oder Werte anpassen</li>
+									<li>Roter Taster: Ausgewählten Punkt aktivieren bzw. Wert speichern</li>
+									<li>Speichern: Lilane LED-Animation</li>
+								</ul>
+							</li>
+							<li>
+								<strong>Menüpunkte</strong>
+								<ol>
+									<li>Helligkeit der LED-Anzeige</li>
+									<li>
+										Messintervall
+										<ul>
+											<li><strong>6</strong> = Permanent (1 Sekunde)</li>
+											<li><strong>5</strong> = 30 Sekunden</li>
+											<li><strong>4</strong> = 5 Minuten</li>
+											<li><strong>3</strong> = 30 Minuten</li>
+											<li><strong>2</strong> = 1 Stunde</li>
+											<li><strong>1</strong> = 4 Stunden</li>
+										</ul>
+									</li>
+									<li>Minimalen Messwert festlegen</li>
+									<li>Maximalen Messwert festlegen</li>
+									<li>LED-Anzeige umkehren</li>
+									<li>Reset – Alle Einstellungen zurücksetzen</li>
+									<li>Neustart</li>
+								</ol>
+							</li>
+						</ol>
+
+						<blockquote>
+							<strong>Hinweis:</strong><br />
+							Ohne Eingabe endet das Menü nach 15 Sekunden automatisch und zeigt wieder den Messwert an.
+						</blockquote>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer class="p-4 small">From <a href="mailto:daniel.kugler@neonsw.de" class="strong">Dani</a> with ♥️</footer>
+
+		<script type="module">
+			import * as app from "./src/script.js";
+			(() => {
+				app.getWifiStatus();
+				document
+					.getElementById("MenuButtonSensor")
+					.addEventListener("click", () => app.onSwitchSection("SectionSensorData"));
+				document
+					.getElementById("MenuButtonWifi")
+					.addEventListener("click", () => app.onSwitchSection("SectionWifiSettings"));
+				document.getElementById("ModalWifiInputShowPassword").addEventListener("click", app.onShowPassword);
+				document.getElementById("ModalWifiButtonConnect").addEventListener("click", app.onWifiConnect);
+				document.getElementById("WifiButtonDisconnect").addEventListener("click", app.onWifiDisconnect);
+				document.getElementById("ModalWifiButtonCancel").addEventListener("click", app.onCancelWifiConnect);
+				document.getElementById("ModalWifiButtonCancelX").addEventListener("click", app.onCancelWifiConnect);
+				document.getElementById("LedDirectionSwitch").addEventListener("change", app.onToggleLedDirection);
+				document.getElementById("WifiButtonScan").addEventListener("click", app.onScanForNetworks);
+				document.getElementById("IntervalSelect").addEventListener("change", app.onIntervalChange);
+
+				document.getElementById("SensorSignalAdcMinSet").addEventListener("click", () => app.onSetAdc("min"));
+				document.getElementById("SensorSignalAdcMaxSet").addEventListener("click", () => app.onSetAdc("max"));
+
+				setInterval(() => app.getSensorData(), 1000);
+			})();
+		</script>
+		<script>
+			function showModal(id) {
+				const modal = document.getElementById(id);
+				modal.classList.add("show");
+			}
+			function hideModal(id) {
+				const modal = document.getElementById(id);
+				modal.classList.remove("show");
+			}
+		</script>
+	</body>
+</html>

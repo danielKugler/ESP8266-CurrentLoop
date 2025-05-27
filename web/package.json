@@ -1,0 +1,20 @@
+{
+	"name": "sensor-portal",
+	"private": true,
+	"version": "1.0.0",
+	"author": {
+		"name": "Daniel Kugler",
+		"email": "daniel.kugler@neonsw.de"
+	},
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build --mode production",
+		"preview": "vite preview"
+	},
+	"devDependencies": {
+		"minify": "^14.0.0",
+		"vite": "^6.3.5",
+		"vite-plugin-minify": "^2.1.0",
+		"vite-plugin-singlefile": "^2.2.0"
+	}
+}
