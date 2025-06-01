@@ -77,6 +77,14 @@ It can be connected to a WiFi-Network via the interface.
 
 ---
 
+## Blender construction
+
+![Assembly2](_res/3d-box.png)
+![Assembly2](_res/3d-deckel.png)
+![Assembly2](_res/3d-kabelhalterung.png)
+
+
+## Finished assembly
 ![Assembly2](_res/assembly-02.webp)
 ![Assembly1](_res/assembly-01.webp)
 
