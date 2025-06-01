@@ -79,14 +79,16 @@ It can be connected to a WiFi-Network via the interface.
 
 ## Blender construction
 
-![Assembly2](_res/3d-box.png)
-![Assembly2](_res/3d-deckel.png)
-![Assembly2](_res/3d-kabelhalterung.png)
-
+|![3D-Box](_res/3d-box.png)|![3D-Deckel](_res/3d-deckel.png)|![3D-Kabelhalterung](_res/3d-kabelhalterung.png)|
+|--------------------------|--------------------------|--------------------------|
 
 ## Finished assembly
-![Assembly2](_res/assembly-02.webp)
-![Assembly1](_res/assembly-01.webp)
+|![Assembly1](_res/assembly-01.webp)|![Assembly2](_res/assembly-02.webp)|
+|-----------------------------------|-----------------------------------|
+
+## Captive-Portal / UI
+|![UI1](_res/ui-01.png)|![UI1](_res/ui-02.png)|![UI1](_res/ui-03.png)|
+|----------------------|----------------------|----------------------|
 
 
 ---
