@@ -11,7 +11,17 @@ It can be connected to a WiFi-Network via the interface.
 
 ---
 
+
+![Circuit diagram](_res/Schaltplan-Transistor.png)
+*Using transistors to control the step-up module for the power supply of the sensor.*
+
+
+---
+
 ![Circuit diagram](_res/Schaltplan-Controller.png)
+*Using controller board converter for the power supply of the sensor.*
+
+---
 
 **Used Parts:**
 
@@ -19,7 +29,7 @@ It can be connected to a WiFi-Network via the interface.
 * **Sensor** - [TL-136 12-32VDC 4-20mA](https://amzn.to/43LIqXw)
 * **Buttons** - [RUNCCI-YUN 20 pieces 3V-6V-12V-24V](https://amzn.to/3STD4TT)
 * **LED Indicator** [Sparkleiot 8 Bits WS2812 RGB LED Stick](https://amzn.to/4dA574t)
-* **Converter** - [CONTROLLED DC-DC STEP-UP CONVERTER](https://www.curiouselectric.co.uk/products/controlled-dc-dc-step-up-converter) 
+* **Converter** - [CONTROLLED DC-DC STEP-UP CONVERTER](https://www.curiouselectric.co.uk/products/controlled-dc-dc-step-up-converter)
 
 (Amazon affiliate links - if you want to support this project, use these links)
 
